@@ -441,3 +441,1426 @@ us 用户CPU时间，我曾经在一个做加密解密很频繁的服务器上�
 sy 系统CPU时间，如果太高，表示系统调用时间长，例如是IO操作频繁。
 id 空闲 CPU时间，一般来说，id + us + sy = 100,一般我认为id是空闲CPU使用率，us是用户CPU使用率，sy是系统CPU使用率。
 wt 等待IO CPU时间。
+
+
+<table cellspacing="0" cellpadding="0" border="1">
+<tbody>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">命令</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">功能说明</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">线上查询及帮助命令(2个)</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">man</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看命令帮助，命令的词典，更复杂的还有info，但不常用。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">help</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看Linux内置命令的帮助，比如cd命令。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">文件和目录操作命令(18个)</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ls</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼list，功能是列出目录的内容及其内容属性信息。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">cd</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼change directory，功能是从当前工作目录切换到指定的工作目录。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">cp</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼copy，其功能为复制文件或目录。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">find</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查找的意思，用于查找目录及目录下的文件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">mkdir</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼make directories，其功能是创建目录。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">mv</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼move，其功能是移动或重命名文件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">pwd</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼print working directory，其功能是显示当前工作目录的绝对路径。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">rename</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">用于重命名文件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">rm</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼remove，其功能是删除一个或多个文件或目录。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">rmdir</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼remove empty directories，功能是删除空目录。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">touch</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">创建新的空文件，改变已有文件的时间戳属性。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">tree</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">功能是以树形结构显示目录下的内容。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">basename</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示文件名或目录名。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">dirname</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示文件或目录路径。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">chattr</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">改变文件的扩展属性。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">lsattr</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看文件扩展属性。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">file</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示文件的类型。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">md5sum</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">计算和校验文件的MD5值。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">查看文件及内容处理命令（21个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">cat</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼concatenate，功能是用于连接多个文件并且打印到屏幕输出或重定向到指定文件中。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">tac</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">tac是cat的反向拼写，因此命令的功能为反向显示文件内容。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">more</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">分页显示文件内容。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">less</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">分页显示文件内容，more命令的相反用法。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">head</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示文件内容的头部。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">tail</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示文件内容的尾部。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">cut</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">将文件的每一行按指定分隔符分割并输出。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">split</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">分割文件为不同的小片段。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">paste</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">按行合并文件内容。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">sort</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">对文件的文本内容排序。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">uniq</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">去除重复行。oldboy</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">wc</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">统计文件的行数、单词数或字节数。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">iconv</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">转换文件的编码格式。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">dos2unix</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">将DOS格式文件转换成UNIX格式。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">diff</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼difference，比较文件的差异，常用于文本文件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">vimdiff</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">命令行可视化文件比较工具，常用于文本文件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">rev</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">反向输出文件内容。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">grep/egrep</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">过滤字符串，三剑客老三。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">join</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">按两个文件的相同字段合并。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">tr</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">替换或删除字符。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">vi/vim</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">命令行文本编辑器。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">文件压缩及解压缩命令（4个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">tar</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">打包压缩。oldboy</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">unzip</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">解压文件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">gzip</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">gzip压缩工具。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">zip</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">压缩工具。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">信息显示命令（11个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">uname</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示操作系统相关信息的命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">hostname</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示或者设置当前系统的主机名。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">dmesg</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示开机信息，用于诊断系统故障。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">uptime</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示系统运行时间及负载。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">stat</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示文件或文件系统的状态。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">du</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">计算磁盘空间使用情况。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">df</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">报告文件系统磁盘空间的使用情况。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">top</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">实时显示系统资源使用情况。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">free</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看系统内存。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">date</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示与设置系统时间。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">cal</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看日历等时间信息。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">搜索文件命令（4个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">which</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查找二进制命令，按环境变量PATH路径查找。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">find</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">从磁盘遍历查找文件或目录。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">whereis</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查找二进制命令，按环境变量PATH路径查找。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">locate</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">从数据库&nbsp;(/var/lib/mlocate/mlocate.db)&nbsp;查找命令，使用updatedb更新库。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">用户管理命令（10个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">useradd</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">添加用户。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">usermod</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">修改系统已经存在的用户属性。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">userdel</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">删除用户。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">groupadd</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">添加用户组。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">passwd</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">修改用户密码。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">chage</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">修改用户密码有效期限。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">id</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看用户的uid,gid及归属的用户组。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">su</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">切换用户身份。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">visudo</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">编辑/etc/sudoers文件的专属命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">sudo</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">以另外一个用户身份（默认root用户）执行事先在sudoers文件允许的命令。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">基础网络操作命令（11个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">telnet</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">使用TELNET协议远程登录。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ssh</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">使用SSH加密协议远程登录。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">scp</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全拼secure copy，用于不同主机之间复制文件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">wget</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">命令行下载文件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ping</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">测试主机之间网络的连通性。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">route</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示和设置linux系统的路由表。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ifconfig</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看、配置、启用或禁用网络接口的命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ifup</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">启动网卡。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ifdown</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">关闭网卡。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">netstat</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看网络状态。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ss</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看网络状态。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">深入网络操作命令（9个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">nmap</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">网络扫描命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">lsof</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全名list open files，也就是列举系统中已经被打开的文件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">mail</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">发送和接收邮件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">mutt</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">邮件管理命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">nslookup</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">交互式查询互联网DNS服务器的命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">dig</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查找DNS解析过程。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">host</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查询DNS的命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">traceroute</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">追踪数据传输路由状况。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">tcpdump</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">命令行的抓包工具。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">有关磁盘与文件系统的命令（16个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">mount</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">挂载文件系统。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">umount</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">卸载文件系统。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">fsck</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">检查并修复Linux文件系统。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">dd</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">转换或复制文件。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">dumpe2fs</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">导出ext2/ext3/ext4文件系统信息。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">dump</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">ext2/3/4文件系统备份工具。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">fdisk</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">磁盘分区命令，适用于2TB以下磁盘分区。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">parted</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">磁盘分区命令，没有磁盘大小限制，常用于2TB以下磁盘分区。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">mkfs</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">格式化创建Linux文件系统。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">partprobe</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">更新内核的硬盘分区表信息。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">e2fsck</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">检查ext2/ext3/ext4类型文件系统。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">mkswap</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">创建Linux交换分区。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">swapon</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">启用交换分区。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">swapoff</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">关闭交换分区。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">sync</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">将内存缓冲区内的数据写入磁盘。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">resize2fs</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">调整ext2/ext3/ext4文件系统大小。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">系统权限及用户授权相关命令（4个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">chmod</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">改变文件或目录权限。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">chown</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">改变文件或目录的属主和属组。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">chgrp</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">更改文件用户组。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">umask</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示或设置权限掩码。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">查看系统用户登陆信息的命令（7个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">whoami</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示当前有效的用户名称，相当于执行id -un命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">who</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示目前登录系统的用户信息。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">w</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示已经登陆系统的用户列表，并显示用户正在执行的指令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">last</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示登入系统的用户。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">lastlog</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示系统中所有用户最近一次登录信息。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">users</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示当前登录系统的所有用户的用户列表。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">finger</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查找并显示用户信息。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">内置命令及其它（19个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">echo</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">打印变量，或直接输出指定的字符串</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">printf</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">将结果格式化输出到标准输出。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">rpm</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">管理rpm包的命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">yum</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">自动化简单化地管理rpm包的命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">watch</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">周期性的执行给定的命令，并将命令的输出以全屏方式显示。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">alias</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">设置系统别名。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">unalias</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">取消系统别名。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">date</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看或设置系统时间。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">clear</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">清除屏幕，简称清屏。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">history</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看命令执行的历史纪录。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">eject</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">弹出光驱。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">time</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">计算命令执行时间。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">nc</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">功能强大的网络工具。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">xargs</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">将标准输入转换成命令行参数。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">exec</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">调用并执行指令的命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">export</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">设置或者显示环境变量。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">unset</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">删除变量或函数。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">type</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">用于判断另外一个命令是否是内置命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">bc</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">命令行科学计算器</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">系统管理与性能监视命令(9个)</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">chkconfig</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">管理Linux系统开机启动项。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">vmstat</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">虚拟内存统计。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">mpstat</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示各个可用CPU的状态统计。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">iostat</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">统计系统IO。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">sar</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">全面地获取系统的CPU、运行队列、磁盘&nbsp;I/O、分页（交换区）、内存、&nbsp;CPU中断和网络等性能数据。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ipcs</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">用于报告Linux中进程间通信设施的状态，显示的信息包括消息列表、共享内存和信号量的信息。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ipcrm</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">用来删除一个或更多的消息队列、信号量集或者共享内存标识。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">strace</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">用于诊断、调试Linux用户空间跟踪器。我们用它来监控用户空间进程和内核的交互，比如系统调用、信号传递、进程状态变更等。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ltrace</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">命令会跟踪进程的库函数调用,它会显现出哪个库函数被调用。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">关机/重启/注销和查看系统信息的命令（6个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">shutdown</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">关机。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">halt</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">关机。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">poweroff</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">关闭电源。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">logout</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">退出当前登录的Shell。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">exit</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">退出当前登录的Shell。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">Ctrl+d</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">退出当前登录的Shell的快捷键。</span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top" width="553">
+<p><span style="color: rgba(0, 0, 0, 1)">进程管理相关命令（15个）</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">bg</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">将一个在后台暂停的命令，变成继续执行&nbsp;&nbsp;（在后台执行）。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">fg</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">将后台中的命令调至前台继续运行。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">jobs</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看当前有多少在后台运行的命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">kill</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">终止进程。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">killall</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">通过进程名终止进程。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">pkill</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">通过进程名终止进程。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">crontab</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">定时任务命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">ps</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">显示进程的快照。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">pstree</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">树形显示进程。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">nice/renice</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">调整程序运行的优先级。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">nohup</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">忽略挂起信号运行指定的命令。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">pgrep</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查找匹配条件的进程。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">runlevel</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">查看系统当前运行级别。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">init</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">切换运行级别。</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="83">
+<p><span style="color: rgba(0, 0, 0, 1)">service</span></p>
+</td>
+<td valign="top" width="470">
+<p><span style="color: rgba(0, 0, 0, 1)">启动、停止、重新启动和关闭系统服务，还可以显示所有系统服务的当前状态。</span></p>
+<p><span style="color: rgba(0, 0, 0, 1)">&nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
